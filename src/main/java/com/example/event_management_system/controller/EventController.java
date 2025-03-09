@@ -1,6 +1,7 @@
 package com.example.event_management_system.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -31,18 +32,21 @@ public class EventController {
 
 
     @GetMapping("/new")
+    @PreAuthorize("hasAuthority('ADMIN')")
     public String showAddEventForm(Model model) {
         model.addAttribute("event", new Event());
         return "add-event";
     }
 
     @PostMapping("/save")
+    @PreAuthorize("hasAuthority('ADMIN')")
     public String saveEvent(@ModelAttribute Event event) {
         eventService.saveEvent(event);
         return "redirect:/events";
     }
 
     @GetMapping("/edit/{id}")
+    @PreAuthorize("hasAuthority('ADMIN')")
     public String showEditEventForm(@PathVariable Long id, Model model) {
         Optional<Event> event = eventService.getEventById(id);
         if (event.isPresent()) {
@@ -60,6 +64,7 @@ public class EventController {
     }
 
     @GetMapping("/delete/{id}")
+    @PreAuthorize("hasAuthority('ADMIN')")
     public String deleteEvent(@PathVariable Long id) {
         eventService.deleteEvent(id);
         return "redirect:/events";

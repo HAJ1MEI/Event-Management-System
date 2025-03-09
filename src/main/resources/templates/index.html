@@ -75,16 +75,27 @@
 <body>
 
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark">
-        <div class="container">
-            <a class="navbar-brand" href="/events"><strong>BookMyEvent</strong></a>
-            <form class="d-flex ms-auto" action="/events/search" method="get">
-                <input class="form-control me-2" type="search" name="title" placeholder="Search events">
-                <button class="btn btn-outline-light" type="submit">Search</button>
-            </form>
+<nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container">
+        <a class="navbar-brand" href="/events"><strong>BookMyEvent</strong></a>
+
+        <form class="d-flex ms-auto" action="/events/search" method="get">
+            <input class="form-control me-2" type="search" name="title" placeholder="Search events">
+            <button class="btn btn-outline-light" type="submit">Search</button>
+        </form>
+
+        <!-- Show "Add Event" button only if the user is an admin -->
+        <div sec:authorize="hasAuthority('ADMIN')">
             <a href="/events/new" class="btn btn-success ms-3">Add Event</a>
         </div>
-    </nav>
+
+        <!-- Show login/logout buttons -->
+        <div class="ms-3">
+            <a href="/login" sec:authorize="!isAuthenticated()" class="btn btn-primary">Login</a>
+            <a href="/logout" sec:authorize="isAuthenticated()" class="btn btn-danger">Logout</a>
+        </div>
+    </div>
+</nav>
 	
 	<!-- Carousel -->
     
@@ -113,22 +124,25 @@
         </button>
     </div>
         <div class="row">
-        <h1 class="mb-2" style="color: #91292c">Live Events ></h1>
-            <div th:each="event : ${events}" class="col-md-4 mb-4">
-                <div class="card h-100" th:onclick="|window.location.href='/events/details/${event.id}'|">
-                    <img th:src="${event.imageUrl}" class="card-img-top" alt="Event Image">
-                    <div class="card-body">
-                        <h5 class="card-title" th:text="${event.title}"></h5>
-                        <p class="card-text" th:text="${event.description}" ></p>
-                        <h6 class="card-subtitle mb-2 text-muted">Price: ₹<span th:text="${event.price}"></span></h6>
-                        <div class="d-flex justify-content-between mt-3">
-    						<a th:href="@{/events/edit/{id}(id=${event.id})}" class="btn btn-primary me-2">Edit</a>
-    						<a th:href="@{/events/delete/{id}(id=${event.id})}" class="btn btn-danger" onclick="return confirm('Are you sure?')">Delete</a>
-						</div>
-                    </div>
+    <h1 class="mb-2" style="color: #91292c">Live Events ></h1>
+    <div th:each="event : ${events}" class="col-md-4 mb-4">
+        <div class="card" style="cursor: pointer;" th:onclick="|window.location.href='/events/details/${event.id}'|">
+            <img th:src="${event.imageUrl}" class="card-img-top" alt="Event Image">
+            <div class="card-body">
+                <h5 class="card-title" th:text="${event.title}"></h5>
+                <p class="card-text" th:text="${event.description}"></p>
+                <h6 class="card-subtitle mb-2 text-muted">Price: ₹<span th:text="${event.price}"></span></h6>
+                
+                <!-- Show Edit & Delete buttons only for admins -->
+                <div sec:authorize="hasAuthority('ADMIN')">
+                    <a th:href="@{/events/edit/{id}(id=${event.id})}" class="btn btn-primary">Edit</a>
+                    <a th:href="@{/events/delete/{id}(id=${event.id})}" class="btn btn-danger" onclick="return confirm('Are you sure?')">Delete</a>
                 </div>
             </div>
         </div>
+    </div>
+</div>
+
     </div>
 
     
