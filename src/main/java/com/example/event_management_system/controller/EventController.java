@@ -30,11 +30,12 @@ public class EventController {
     
     @Autowired
     private EventRepository er;
+    
 
+    
     @GetMapping()
-    public String listEvents(@RequestParam(required = false) String category, Model model) {
+    public String homePage(@RequestParam(required = false) String category, Model model) {
         List<Event> events;
-        List<Event> recentEvents;
         List<Category> categories = categoryService.getAllCategories();
         
         if (category != null && !category.isEmpty()) {
@@ -43,21 +44,28 @@ public class EventController {
             events = er.findAll();
         }
         
-        recentEvents = er.findTop5ByOrderByIdDesc();
-        
-        List<List<Category>> categoryGroups = new ArrayList<>();
-        for (int i = 0; i < categories.size(); i += 3) {
-            categoryGroups.add(categories.subList(i, Math.min(i + 3, categories.size())));
-        }
-        
-
         model.addAttribute("events", events);
-        model.addAttribute("categoryGroups", categoryGroups);
+        model.addAttribute("categories", categories); 
         
-        model.addAttribute("recentEvents", recentEvents);
-
-        return "index";
+        return "home";
     }
+    
+    @GetMapping("/products")
+    public String getProducts(Model model) {
+        List<Event> events = er.findAll();
+        model.addAttribute("events", events);
+        return "products";
+    }
+    
+    @GetMapping("/contact")
+    public String contactPage(Model model) {
+        return "contact";
+    }
+    @GetMapping("/about")
+    public String aboutPage(Model model) {
+        return "about";
+    }
+    
 
 
     @GetMapping("/new")
@@ -66,9 +74,20 @@ public class EventController {
         if (loggedInUser == null || !loggedInUser.getRole().equals("ADMIN")) {
             return "redirect:/events";  // Redirect if user is not admin
         }
+        List<String> categories = List.of(
+                "Living Room Furniture",
+                "Bedroom Furniture",
+                "Dining Room Furniture",
+                "Office Furniture",
+                "Outdoor Furniture",
+                "Kids & Baby Furniture",
+                "Storage & Organization",
+                "Home Decor & Accessories",
+                "Luxury & Premium Furniture"
+            );
 
         model.addAttribute("event", new Event());
-        model.addAttribute("categories", categoryService.getAllCategories());
+        model.addAttribute("categories", categories);
         return "add-event";
     }
 
@@ -87,14 +106,15 @@ public class EventController {
     public String showEditEventForm(@PathVariable Long id, Model model) {
         Optional<Event> event = eventService.getEventById(id);
         List<String> categories = List.of(
-                "Technology & Innovation",
-                "Music & Entertainment",
-                "Food & Lifestyle",
-                "Adventure & Travel",
-                "Education & Workshops",
-                "Business & Networking",
-                "Gaming & Pop Culture",
-                "Others"
+                "Living Room Furniture",
+                "Bedroom Furniture",
+                "Dining Room Furniture",
+                "Office Furniture",
+                "Outdoor Furniture",
+                "Kids & Baby Furniture",
+                "Storage & Organization",
+                "Home Decor & Accessories",
+                "Luxury & Premium Furniture"
             );
         if (event.isPresent()) {
             model.addAttribute("event", event.get());
@@ -121,6 +141,15 @@ public class EventController {
     public String searchEvents(@RequestParam String title, Model model) {
         List<Event> searchResults = eventService.searchEventsByTitle(title);
         model.addAttribute("events", searchResults);
-        return "index";
+        return "products";
     }
+    
+    @GetMapping("/category")
+    public String eventsByCategory(@RequestParam String category, Model model) {
+        List<Event> events = er.findByCategory(category);
+        model.addAttribute("events", events);
+        model.addAttribute("category", category);
+        return "category"; // This corresponds to category.html
+    }
+
 }

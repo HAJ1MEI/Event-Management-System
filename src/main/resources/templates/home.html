@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FurnitureX</title>
+    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    
+    <style>
+    
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+:root{
+    --accent-color: #6e6457;
+    --light-accent: #8d806f;
+    --primary-color: #f7f7f3;
+    --dark-color: #0a0a0a;
+
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+    font-family: 'Poppins', sans-serif;
+}
+
+h1{
+    font-family: 'Cinzel', serif !important;
+}
+
+a{
+	color: white;
+}
+
+.nav_links a{
+    color: var(--accent-color);
+}
+
+i{
+    font-size: 1.5rem;
+}
+
+.hero_img{
+    width: 100vw;
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    
+}
+
+nav{
+    max-width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    justify-content: space-between;
+    align-self: center;
+    padding: 15px 100px;
+    align-items: center;
+    background-color: var(--primary-color);
+    color: var(--dark-color);
+    font-size: 1.1rem;
+    /* width: 90%; */
+    border-radius: 15px;
+    position: relative;
+    z-index: 1000;
+    top: 10px;
+}
+
+input[type="text"], .search-field{
+    border: none;
+    padding: 10px;
+    border-radius: 10px;
+    margin-right: 0.5rem;
+    margin-left:0.5rem;
+    border: 1px solid var(--accent-color);
+}
+
+.nav_links{
+    display: flex;
+    justify-content: space-between;
+    width: 35%;
+    margin-left: 150px;
+}
+.nav_links a:hover{
+    transition: 0.3s;
+    color: var(--dark-color);
+}
+
+.logo{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    ;
+}
+.logo h1 a{
+    font-family: 'Cinzel', serif;
+    color: var(--dark-color);
+}
+.nav-login{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+
+.hero{
+    background: url(https://i.postimg.cc/2SMLfG6t/hero.jpg);
+    background-size: cover;
+    height: 800px;
+}
+
+.btn{
+    padding: 10px 20px;
+    background-color: var(--accent-color);
+    color: var(--primary-color);
+    border-radius: 10px;
+    cursor: pointer;
+    border: none;
+    text-align: center;
+    margin-right: 10px;
+}
+.btn:hover{
+    background-color: var(--light-accent);
+    transition: 0.1s;
+}
+
+.shop-btn, .browse-btn{
+    position: relative;
+    left: 4%;
+    top: 67%;
+    font-size: 1.2rem;
+    border: none;
+}
+
+.browse-btn{
+    background-color: var(--primary-color);
+    color: var(--dark-color);
+}
+.browse-btn:hover{
+    background-color: rgb(231, 231, 231);
+    transition: 0.1s;
+}
+
+.info-section{
+    text-align: center;
+    padding: 3rem;
+    max-width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    color: var(--dark-color);
+}
+
+.info-section p{
+    padding: 1rem;
+    font-size: 1.2rem;
+}
+
+.info-section i{
+    font-size: 7.5rem;
+    padding: 1rem;
+}
+
+/* Carousel */
+.carousel-container {
+    position: relative;
+    width: 95%;
+    margin: auto;
+    overflow: hidden;
+}
+
+.carousel-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-x: hidden;
+    
+}
+
+.carousel-wrapper::-webkit-scrollbar {
+    display: none;  
+}
+
+.carousel {
+    display: flex;
+    gap: 20px;
+    transition: transform 0.5s ease-in-out;
+}
+
+.carousel-item {
+    width: 600px;
+    height: 400px;
+    text-align: center;
+    flex-shrink: 0;
+}
+
+.carousel-item img {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.prev-btn, .next-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    font-size: 20px;
+    z-index: 10;
+}
+
+.prev-btn { left: 10px; }
+.next-btn { right: 10px; }
+
+.prev-btn:hover, .next-btn:hover {
+    background: rgba(0, 0, 0, 0.8);
+}
+
+
+/* Cards */
+.new-card{
+    min-width: 400px;
+    max-width: 400px;
+    height: 635px;
+    background-color: #f2f2f2;
+    padding: 10px;
+    margin-bottom: 5rem;
+    cursor: pointer;
+}
+.new-card img {
+    width: 100%;
+    height: 500px; 
+    object-fit: cover; 
+    border-radius: 5px;
+}
+
+.master-card{
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+    flex-wrap:wrap;
+}
+
+.new-products{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.card-body{
+    padding-left: .3rem;
+}
+
+.card-body button{
+    margin-top: 1rem;
+}
+
+/* footer */
+img {
+    max-width: 100%;
+    height: auto;
+}
+        section {
+            padding: 60px 0;
+           /* min-height: 100vh;*/
+        }
+ ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+.contact-area {
+    border-bottom: 1px solid #353C46;
+    margin-top: 5rem;
+}
+.contact-content h1{
+	font-size: 3rem;
+}
+.contact-content p {
+    font-size: 15px;
+    margin: 30px 0 60px;
+    position: relative;
+}
+
+.contact-content p::after {
+    background: #353C46;
+    bottom: -30px;
+    content: "";
+    height: 1px;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%);
+    width: 80%;
+}
+
+.contact-content h6 {
+    color: white;
+    font-size: 15px;
+    font-weight: 400;
+    margin-bottom: 10px;
+}
+
+.contact-content span {
+    color: white;
+    margin: 0 10px;
+}
+
+.contact-social {
+    margin-top: 30px;
+}
+
+.contact-social > ul {
+    display: inline-flex;
+}
+
+.contact-social ul li a {
+    border: 1px solid #8b9199;
+    color: #8b9199;
+    display: inline-block;
+    height: 40px;
+    margin: 0 10px;
+    padding-top: 7px;
+    transition: all 0.4s ease 0s;
+    width: 40px;
+}
+
+.contact-social ul li a:hover {
+    border: 1px solid #FAB702;
+    color: #FAB702;
+}
+
+.contact-content img {
+    max-width: 210px;
+}
+
+section, footer {
+    background-color: var(--accent-color);
+    color: white;
+}
+
+footer p {
+    padding: 40px 0;
+    text-align: center;
+}
+
+footer img {
+    width: 44px;
+}
+
+.text-center{
+    text-align: center;
+}
+
+/*Dropdown*/
+.profile-menu {
+  position: relative;
+  display: inline-block;
+}
+
+.profile-btn {
+  background: none;
+  border: none;
+  color: var(--dark-color);
+  cursor: pointer;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 8px;
+}
+
+.profile-dropdown {
+  display: none;
+  position: absolute;
+  top: 100%; /* Places dropdown right below the button */
+  right: 0;
+  background: var(--primary-color);
+  min-width: 150px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  border-radius: 5px;
+  z-index: 100;
+}
+
+.profile-dropdown .dropdown-item {
+  display: block;
+  padding: 10px 15px;
+  color: var(--dark-color);
+  text-decoration: none;
+}
+
+.profile-dropdown .dropdown-item:hover {
+  background-color: var(--light-accent);
+  color: var(--primary-color);
+}
+
+/* Show dropdown on hover */
+.profile-menu:hover .profile-dropdown {
+  display: block;
+}
+
+
+.btn-group {
+    display: flex;
+    
+    align-items: center;
+    gap: 10px;  /* adds space between buttons */
+    flex-wrap: wrap; /* allows buttons to wrap if needed */
+    margin-top: 10px;
+}
+.btn-edit{
+	background-color: var(--dark-color);
+}
+.btn-delete{
+	background-color: red;
+}
+
+.view-all-container {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.view-all-btn {
+  padding: 10px 20px;
+  background-color: var(--accent-color);
+  color: var(--primary-color);
+  border-radius: 10px;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: background-color 0.2s;
+}
+
+.view-all-btn:hover {
+  background-color: var(--light-accent);
+}
+    
+    </style>
+</head>
+<body>
+
+    
+    <div class="container">
+        <div class="hero">
+
+            <nav>
+                <div class="logo">
+                    <i class="fa-solid fa-couch" style="color: #abac6c;"></i>
+                    <i class="fa-thin fa-couch"></i>
+                    <h1><a href="/events">FurnitureX</a></h1>
+                </div>
+                <div class="nav_links">
+                	<a href="/events/products">Products</a>
+                    <a href="/events/about">About</a>
+                    <a href="/events/service">Services</a>
+                    <a href="/events/contact">Contact</a>
+                    
+                </div>
+                <div class="nav-login">
+                    <form class="d-flex me-3" action="/events/search" method="get">
+                        <input class="search-field" type="search" name="title" placeholder="Search events..." aria-label="Search">
+                    </form>
+					<li class="nav-item ms-2" th:if="${session.loggedInUser != null and session.loggedInUser.role == 'ADMIN'}">
+                    <a href="/events/new" class="btn btn-warning btn-sm px-3">Add Product</a>
+                </li>
+					
+                    <div class="profile-menu">
+  <button class="btn">
+    <span th:if="${session.loggedInUser != null}" th:text="${session.loggedInUser.username}">Profile</span>
+    <span th:if="${session.loggedInUser == null}">Profile</span>
+    <i class="fa-solid fa-caret-down"></i>
+  </button>
+  <div class="profile-dropdown">
+    <a href="/login" class="dropdown-item" th:if="${session.loggedInUser == null}">Login</a>
+    <a href="/orders" class="dropdown-item" th:if="${session.loggedInUser != null}">Orders</a>
+    <a href="/wishlist" class="dropdown-item" th:if="${session.loggedInUser != null}">Wishlist</a>
+    <a href="/logout" class="dropdown-item" th:if="${session.loggedInUser != null}">Logout</a>
+  </div>
+</div>   
+                </div>
+            </nav>
+    
+            <button class="btn shop-btn">
+            	<a href="/events/products">Shop</a>
+            </button>
+            <button class="btn browse-btn">Browse Collection</button>
+            
+        </div>
+    
+        <div class="info-section">
+            <i class="fa-solid fa-couch" style="color: #6e6457;"></i>
+            <h1>Product Category</h1>
+            <p>Explore our curated selection of premium products, tailored to suit every need and taste. From essenstials to indulgences, find your perfect fit.</p>
+        </div>
+
+        <div class="carousel-container">
+  <button class="prev-btn"><i class="fa fa-chevron-left"></i></button>
+  <div class="carousel">
+    <th:block th:each="category : ${categories}">
+      <a th:href="@{/events/category(category=${category.name})}" style="text-decoration: none; color: inherit;">
+        <div class="carousel-item">
+          <img th:src="${category.imageUrl}" alt="Category Image">
+          <h3 th:text="${category.name}"></h3>
+        </div>
+      </a>
+    </th:block>
+  </div>
+  <button class="next-btn"><i class="fa fa-chevron-right"></i></button>
+</div>
+        
+
+        <div class="info-section">
+            <i class="fa-solid fa-bath" style="color: #6e6457;"></i>
+            <h1>New Products</h1>
+            <p>Be the first to experience innovation with our latest arrivals. Stays ahead of the curve and discover what's new in style, technology and more.</p>
+        </div>
+
+        <div class="new-products">
+  <div class="master-card">
+    <div class="new-card" 
+         th:each="event : ${events.size() > 4 ? events.subList(0,4) : events}"
+         th:onclick="|window.location.href='/events/details/${event.id}'|">
+      <img th:src="${event.imageUrl}" alt="Furniture 1">
+      <div class="card-body">
+        <h3 th:text="${event.title}"></h3>
+        <h4>Price: ₹<span th:text="${event.price}"></span></h4>
+      </div>
+      <div class="btn-group">
+        <a th:if="${session.loggedInUser != null}" th:href="@{/events/book/{id}(id=${event.id})}" class="btn btn-custom">Book Now</a>
+		<a th:if="${session.loggedInUser == null}" href="/login" class="btn btn-custom">Book Now</a>
+        <div class="admin-btn-group" th:if="${session.loggedInUser != null and session.loggedInUser.role == 'ADMIN'}">
+          <a th:href="@{/events/edit/{id}(id=${event.id})}" class="btn btn-outline-secondary btn-sm btn-edit">Edit</a>
+          <a th:href="@{/events/delete/{id}(id=${event.id})}" class="btn btn-danger btn-sm btn-delete" onclick="return confirm('Are you sure?')">Delete</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        <div class="view-all-container">
+  <a href="/events/products" class="btn view-all-btn">View All</a>
+</div>
+    
+    </div>
+
+    <section class="contact-area" id="contact">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 offset-lg-3">
+                    <div class="contact-content text-center">
+                        <h1>FurnitureX</h1>
+                        <p>
+                        	At <b>FurnitureX</b>, we believe that luxury is defined by more than just exquisite 
+                        	materials; it's about the seamless fusion of innovative design, unparalleled
+                        	 craftsmanship, and a deep understanding of modern living. 
+                        	 We curate a collection of contemporary furniture that transcends fleeting trends,
+                        	  focusing instead on timeless pieces that elevate your home into a sanctuary of
+                        	  style and comfort. 
+                        </p>
+                        <div class="hr"></div>
+                        <h6>1120 Lorem ipsum dolor sit amet, KC 179050, Mumbai.</h6>
+                        <h6>+91 99999 99999<span>|</span>+91 90000 00001</h6>
+                        <div class="contact-social">
+                            <ul>
+                                <li><a class="hover-target" href=""><i class="fab fa-facebook-f"></i></a></li>
+                                <li><a class="hover-target" href=""><i class="fab fa-linkedin-in"></i></a></li>
+                                <li><a class="hover-target" href=""><i class="fab fa-github"></i></a></li>
+                                <li><a class="hover-target" href=""><i class="fab fa-behance"></i></a></li>
+                                <li><a class="hover-target" href=""><i class="fab fa-pinterest-p"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- =============== 1.9 Contact Area End ====================-->
+    <!-- =============== 1.9 Footer Area Start ====================-->
+    <footer>
+        <p>Copyright &copy; 2025  <span><b>FurnitureX</b></span> All Rights Reserved.</p>
+    </footer>
+    
+    
+	<script>
+	document.addEventListener("DOMContentLoaded", function () {
+	    const carousel = document.querySelector(".carousel");
+	    const prevBtn = document.querySelector(".prev-btn");
+	    const nextBtn = document.querySelector(".next-btn");
+	    const carouselItems = document.querySelectorAll(".carousel-item");
+
+	    const visibleItems = 3;
+    
+	    const gap = 20; 
+	    const itemWidth = 600 + gap; 
+
+	    const totalItems = carouselItems.length; 
+	    let currentIndex = 0;
+
+	    function updateCarousel() {
+	        carousel.style.transform = `translateX(-${currentIndex * itemWidth}px)`;
+	    }
+
+	    nextBtn.addEventListener("click", function () {
+	        
+	        if (currentIndex < totalItems - visibleItems) {
+	        	currentIndex+=3;
+	        } else {
+	            
+	            currentIndex = 0;
+	        }
+	        updateCarousel();
+	    });
+
+	    prevBtn.addEventListener("click", function () {
+	        if (currentIndex > 0) {
+	            currentIndex--;
+	        } else {
+	            
+	            currentIndex = totalItems - visibleItems;
+	        }
+	        updateCarousel();
+	    });
+	});
+
+
+	</script>
+   
+
+
+   
+   
+    
+</body>
+</html>

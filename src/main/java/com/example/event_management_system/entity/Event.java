@@ -14,7 +14,7 @@ public class Event {
     private String description;
     private double price;
     private String imageUrl;
-    private String category;  // NEW CATEGORY FIELD
+    private String category;  
 
     public Event() {}
 

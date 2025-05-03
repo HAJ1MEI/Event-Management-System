@@ -3,11 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FurnitureX | Product Details</title>
-    <link rel="stylesheet" href="/detail.css">
+    <title>FurnitureX</title>
+    <link rel="stylesheet" href="/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 	<style>
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+		@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 :root{
@@ -29,10 +30,6 @@
 
 h1{
     font-family: 'Cinzel', serif !important;
-}
-
-a{
-	color: white;
 }
 
 .nav_links a{
@@ -70,7 +67,6 @@ nav{
     position: relative;
     z-index: 1000;
     top: 10px;
-    
 }
 
 input[type="text"], .search-field{
@@ -78,13 +74,12 @@ input[type="text"], .search-field{
     padding: 10px;
     border-radius: 10px;
     margin-right: 0.5rem;
-    margin-left:0.5rem;
     border: 1px solid var(--accent-color);
 }
 
 .nav_links{
     display: flex;
-    gap: 30px;
+    justify-content: space-between;
     width: 35%;
     margin-left: 150px;
 }
@@ -109,6 +104,14 @@ input[type="text"], .search-field{
 	align-items: center;
 	justify-content: center;
 }
+
+
+.hero{
+    background: url(https://i.postimg.cc/G2S9mff1/products-hero.jpg);
+    background-size: cover;
+    height: 800px;
+}
+
 .btn{
     padding: 10px 20px;
     background-color: var(--accent-color);
@@ -118,101 +121,148 @@ input[type="text"], .search-field{
     border: none;
     text-align: center;
     margin-right: 10px;
-    display: flex;
-    align-items: center;
-    gap: 10px
 }
 .btn:hover{
     background-color: var(--light-accent);
     transition: 0.1s;
 }
-.product-detail{
-    margin: 5% 10%;
-    display: flex;
-    gap: 50px;
-}
 
-.product-text{
-    width: 50%;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-
-.product-button{
-    margin: 2rem 0;
+.shop-btn, .browse-btn{
+    position: relative;
+    left: 4%;
+    top: 67%;
     font-size: 1.2rem;
-}
-.product-specs{
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
+    border: none;
 }
 
-.wish-btn, .buy-btn{
-    margin-right: 1rem;
-    color: var(--primary-color);
-    padding: 10px 20px;
-    background-color: var(--accent-color);
-    cursor: pointer;
+.browse-btn{
+    background-color: var(--primary-color);
+    color: var(--dark-color);
 }
-.wish-btn:hover, .buy-btn:hover{
-    background-color: var(--light-accent);
+.browse-btn:hover{
+    background-color: rgb(231, 231, 231);
     transition: 0.1s;
 }
-.wish-btn{
-	font-size: 1.2rem;
-	border: none;
-    background-color: rgb(196, 76, 76);
-}
-/*Dropdown*/
-.profile-menu {
-  position: relative;
-  display: inline-block;
+
+.info-section{
+    text-align: center;
+    padding: 3rem;
+    max-width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    color: var(--dark-color);
 }
 
-.profile-btn {
-  background: none;
-  border: none;
-  color: var(--dark-color);
-  cursor: pointer;
-  font-size: 1rem;
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  padding: 8px;
+.info-section p{
+    padding: 1rem;
+    font-size: 1.2rem;
 }
 
-.profile-dropdown {
-  display: none;
-  position: absolute;
-  top: 100%; /* Places dropdown right below the button */
-  right: 0;
-  background: var(--primary-color);
-  min-width: 150px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
-  border-radius: 5px;
-  z-index: 100;
+.info-section i{
+    font-size: 7.5rem;
+    padding: 1rem;
 }
 
-.profile-dropdown .dropdown-item {
-  display: block;
-  padding: 10px 15px;
-  color: var(--dark-color);
-  text-decoration: none;
+/* Carousel */
+.carousel-container {
+    position: relative;
+    width: 95%;
+    margin: auto;
+    overflow: hidden;
 }
 
-.profile-dropdown .dropdown-item:hover {
-  background-color: var(--light-accent);
-  color: var(--primary-color);
+.carousel-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-x: hidden;
+    
 }
 
-/* Show dropdown on hover */
-.profile-menu:hover .profile-dropdown {
-  display: block;
+.carousel-wrapper::-webkit-scrollbar {
+    display: none;  
 }
 
-/*Footer*/
+.carousel {
+    display: flex;
+    gap: 20px;
+    transition: transform 0.5s ease-in-out;
+}
+
+.carousel-item {
+    width: 600px;
+    height: 400px;
+    text-align: center;
+    flex-shrink: 0;
+}
+
+.carousel-item img {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.prev-btn, .next-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    font-size: 20px;
+    z-index: 10;
+}
+
+.prev-btn { left: 10px; }
+.next-btn { right: 10px; }
+
+.prev-btn:hover, .next-btn:hover {
+    background: rgba(0, 0, 0, 0.8);
+}
+
+
+/* Cards */
+.new-card{
+    min-width: 400px;
+    max-width: 400px;
+    height: 635px;
+    background-color: #f2f2f2;
+    padding: 10px;
+    margin-bottom: 5rem;
+    cursor: pointer;
+    border-radius: 5px;
+}
+.new-card img {
+    width: 100%;
+    height: 500px; /* Ensures uniform image size */
+    object-fit: cover; /* Prevents stretching */
+    border-radius: 5px;
+}
+
+.master-card{
+    display: flex;
+    gap :35px;
+    width: 90%;
+    flex-wrap:wrap;
+}
+
+.new-products{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.card-body{
+    padding-left: .3rem;
+}
+
+.card-body button{
+    margin-top: 1rem;
+}
+
+/* footer */
 img {
     max-width: 100%;
     height: auto;
@@ -307,14 +357,77 @@ footer img {
 .text-center{
     text-align: center;
 }
+/*Dropdown*/
+.profile-menu {
+  position: relative;
+  display: inline-block;
+}
 
+.profile-btn {
+  background: none;
+  border: none;
+  color: var(--dark-color);
+  cursor: pointer;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 8px;
+}
+
+.profile-dropdown {
+  display: none;
+  position: absolute;
+  top: 100%; /* Places dropdown right below the button */
+  right: 0;
+  background: var(--primary-color);
+  min-width: 150px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  border-radius: 5px;
+  z-index: 100;
+}
+
+.profile-dropdown .dropdown-item {
+  display: block;
+  padding: 10px 15px;
+  color: var(--dark-color);
+  text-decoration: none;
+}
+
+.profile-dropdown .dropdown-item:hover {
+  background-color: var(--light-accent);
+  color: var(--primary-color);
+}
+
+/* Show dropdown on hover */
+.profile-menu:hover .profile-dropdown {
+  display: block;
+}
+
+
+.btn-group {
+    display: flex;
+    
+    align-items: center;
+    gap: 10px;  /* adds space between buttons */
+    flex-wrap: wrap; /* allows buttons to wrap if needed */
+    margin-top: 10px;
+}
+.btn-edit{
+	background-color: var(--dark-color);
+}
+
+.btn-delete{
+	background-color: red;
+}
 	</style>
 </head>
 <body>
 
     
     <div class="container">
-        
+        <div class="hero">
+
             <nav>
                 <div class="logo">
                     <i class="fa-solid fa-couch" style="color: #abac6c;"></i>
@@ -332,7 +445,9 @@ footer img {
                     <form class="d-flex me-3" action="/events/search" method="get">
                         <input class="search-field" type="search" name="title" placeholder="Search events..." aria-label="Search">
                     </form>
-					
+					<li class="nav-item ms-2" th:if="${session.loggedInUser != null and session.loggedInUser.role == 'ADMIN'}">
+                    <a href="/events/new" class="btn btn-warning btn-sm px-3">Add Product</a>
+                </li>
 					
                     <div class="profile-menu">
   <button class="btn">
@@ -346,35 +461,41 @@ footer img {
     <a href="/wishlist" class="dropdown-item" th:if="${session.loggedInUser != null}">Wishlist</a>
     <a href="/logout" class="dropdown-item" th:if="${session.loggedInUser != null}">Logout</a>
   </div>
-</div>   
+</div>
+                    
+                    
                 </div>
-            </nav>    
-        
-            <div class="product-detail">
-                <div class="product-img">
-                    <img th:src="${event.imageUrl}" alt="">
-                </div>
-                <div class="product-text">
-                    <h2 th:text="${event.title}"></h2>
-                    <p th:text="${event.description}"></p>
-                    <div class="product-button">
-                        
-						<a th:href="@{/events/book/{id}(id=${event.id})}" class="buy-btn">Buy Now</a>
-                        <button class="wish-btn" onclick="addToWishlist()" th:data-eventid="${event.id}">Add to Wishlist</button>
-                        
-                    </div>
-                    <div class="product-specs">
-                        <p><b>Brand:</b> FurnitureX</p>
-                        <p><b>Material:</b> Wood</p>
-                        <p><b>Type:</b> Sitting</p>
-                        <p><b>Wood Type:</b> Oak Wood</p>
-                        <p><b>Return Policy:</b> 30 days</p>
-                        <p><b>Category:</b> Premium Luxury</p>
-                    </div>
-                </div>
+            </nav>
+  
+        </div>
+
+        <div class="info-section">
+            <i class="fa-solid fa-bath" style="color: #6e6457;"></i>
+            <h1>All Products</h1>
+            <p>Be the first to experience innovation with our latest arrivals. Stays ahead of the curve and discover what's new in style, technology and more.</p>
+        </div>
+	
+        <div class="new-products">
+            <div class="master-card " >
+                <div class="new-card" th:each="event : ${events}" th:onclick="|window.location.href='/events/details/${event.id}'|">
+    <img th:src="${event.imageUrl}" alt="Furniture 1">
+    <div class="card-body">
+        <h3 th:text="${event.title}"></h3>
+        <h4>Price:  ₹<span th:text="${event.price}"></span></h4>
+    </div>
+    <div class="btn-group">
+        <a th:if="${session.loggedInUser != null}" th:href="@{/events/book/{id}(id=${event.id})}" class="btn btn-custom">Book Now</a>
+		<a th:if="${session.loggedInUser == null}" href="/login" class="btn btn-custom">Book Now</a>
+        <div class="admin-btn-group" th:if="${session.loggedInUser != null and session.loggedInUser.role == 'ADMIN'}">
+            <a th:href="@{/events/edit/{id}(id=${event.id})}" class="btn btn-outline-secondary btn-sm btn-edit">Edit</a>
+            <a th:href="@{/events/delete/{id}(id=${event.id})}" class="btn btn-danger btn-sm btn-delete" onclick="return confirm('Are you sure?')">Delete</a>
+        </div>
+    </div>
+</div>    
             </div>
-        
-        
+        </div>
+    
+        <script src="script.js"></script>
     </div>
 
     <section class="contact-area" id="contact">
@@ -408,22 +529,11 @@ footer img {
             </div>
         </div>
     </section>
-   
+    <!-- =============== 1.9 Contact Area End ====================-->
+    <!-- =============== 1.9 Footer Area Start ====================-->
     <footer>
         <p>Copyright &copy; 2025  <span><b>FurnitureX</b></span> All Rights Reserved.</p>
     </footer>
-    
-    <script>
-        function addToWishlist() {
-            let eventId = document.querySelector(".wish-btn").getAttribute("data-eventid");
-            fetch(`/events/wishlist/add/${eventId}`, {
-                method: "POST"
-            })
-            .then(response => response.text())
-            .then(data => alert(data));
-        }
-    </script>
-    
     
 </body>
 </html>

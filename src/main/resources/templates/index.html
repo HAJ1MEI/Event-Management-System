@@ -7,19 +7,90 @@
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.png">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <style>
-        body {
-            
-            background-image: url("/p2.png");
-       		background-size: 500px 500px;
-       		background-repeat: repeat;
-        }
-        .navbar {
-            background: linear-gradient(45deg, #91292c, #bf4045);
-        }
-        .navbar-brand {
-            font-size: 1.5rem;
-            font-weight: bold;
-        }
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+	
+	@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+:root{
+    --accent-color: #6e6457;
+    --light-accent: #8d806f;
+    --primary-color: #f7f7f3;
+    --dark-color: #0a0a0a;
+
+}
+        *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+    font-family: 'Poppins', sans-serif;
+}
+        
+        h1{
+    		font-family: 'Cinzel', serif !important;
+		}
+		a{
+			text-decoration: none;
+		}
+		.nav_links a{
+    		color: var(--accent-color);
+    		
+		}
+
+		i{
+    		font-size: 1.5rem;
+		}
+		
+		nav{
+    max-width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    justify-content: space-between;
+    align-self: center;
+    padding: 15px 100px;
+    align-items: center;
+    background-color: var(--accent-color);
+    color: var(--dark-color);
+    font-size: 1.1rem;
+    /* width: 90%; */
+    border-radius: 15px;
+    position: relative;
+    z-index: 1000;
+    top: 10px;
+}
+
+input[type="text"]{
+    border: none;
+    padding: 10px;
+    border-radius: 10px;
+    margin-right: 0.5rem;
+}
+
+.nav_links{
+    display: flex;
+    justify-content: space-between;
+    width: 35%;
+    margin-left: 150px;
+}
+.nav_links a:hover{
+    transition: 0.3s;
+    color: var(--dark-color);
+}
+
+.logo{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    ;
+}
+.logo h1 a{
+    font-family: 'Cinzel', serif;
+    color: var(--dark-color);
+}
+        
         .carousel-item img {
             filter: brightness(70%);
             transition: 0.5s;
@@ -96,30 +167,90 @@
 			
 		}
         
+        
+        
+        
+        .custom-card {
+        border: none;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+        cursor: pointer;
+    }
+
+    .custom-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+    }
+
+    .card-header {
+        background-color: tomato;
+        color: white;
+        padding: 12px;
+        font-size: 1.2rem;
+        font-weight: bold;
+        text-align: center;
+    }
+
+    .card-body {
+        padding: 15px;
+    }
+
+    .price {
+        font-weight: bold;
+        font-size: 1.1rem;
+    }
+
+    .btn-custom {
+        background-color: tomato;
+        color: white;
+        border: none;
+        transition: background 0.3s ease-in-out;
+        padding: 8px 15px;
+        font-size: 0.9rem;
+        border-radius: 8px;
+    }
+
+    .btn-custom:hover {
+        background-color: #d6483b;
+    }
+
+    .btn-danger {
+        transition: background 0.3s ease-in-out;
+    }
+
+    .btn-danger:hover {
+        background-color: #b22222;
+    }
+
+    .btn-group {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 15px;
+    }
+        
     </style>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark">
-    <div class="container">
-        <a class="navbar-brand" href="/events">Event Management</a>
-
-        <!-- Search Form -->
-        <form class="d-flex ms-auto" action="/events/search" method="get">
-            <input class="form-control me-2" type="search" name="title" placeholder="Search events..." aria-label="Search">
-            <button class="btn btn-outline-light" type="submit">Search</button>
-        </form>
-
-        <div class="d-flex align-items-center ms-3">
-            <a href="/login" class="btn btn-light" th:if="${session.loggedInUser == null}">Login</a>
-            <span class="text-white" th:if="${session.loggedInUser != null}">
-                Welcome, <span th:text="${session.loggedInUser.username}"></span>
-            </span>
-            <a href="/events/new" class="btn custom-button ms-3" th:if="${session.loggedInUser != null and session.loggedInUser.role == 'ADMIN'}">Add Event</a>
-            <a href="/logout" class="btn btn-danger ms-3" th:if="${session.loggedInUser != null}">Logout</a>
-        </div>
-    </div>
-	</nav>
-
+    <nav>
+                <div class="logo">
+                    <i class="fa-solid fa-couch" style="color: #abac6c;"></i>
+                    <i class="fa-thin fa-couch"></i>
+                    <h1><a href="/">FurnitureX</a></h1>
+                </div>
+                <div class="nav_links">
+                    <a href="/events">Products</a>
+                    <a href="#">About</a>
+                    <a href="#">Services</a>
+                    <a href="#">Contact</a>
+                </div>
+                <div>
+                    <input type="text" placeholder="Search...">
+                    <a href="#" class="btn">Login</a>
+                </div>
+            </nav>
 
     <div class="container mt-4">
         <h1 class="text-center text-danger">Recently Added Events</h1>
@@ -178,7 +309,7 @@
         <h1 class="mb-4 text-danger">Live Events</h1>
         <div class="row">
             <div th:each="event : ${events}" class="col-md-4 mb-4">
-                <div class="card h-100" th:onclick="|window.location.href='/events/details/${event.id}'|">
+                <!--  <div class="card h-100" th:onclick="|window.location.href='/events/details/${event.id}'|">
                     <img th:src="${event.imageUrl}" class="card-img-top" alt="Event Image">
                     <div class="card-body">
                         <h5 class="card-title" th:text="${event.title}"></h5>
@@ -189,7 +320,24 @@
                             <a th:href="@{/events/delete/{id}(id=${event.id})}" class="btn btn-danger" onclick="return confirm('Are you sure?')">Delete</a>
                         </div>
                     </div>
-                </div>
+                </div>-->
+                <div class="card custom-card h-100">
+    <div class="card-header" th:text="${event.title}"></div>
+    <img th:src="${event.imageUrl}" class="card-img-top" alt="Event Image">
+    <div class="card-body">
+        <p class="card-text" th:text="${event.description}"></p>
+        <h6 class="price">Price: ₹<span th:text="${event.price}"></span></h6>
+
+        <div class="btn-group">
+            <a th:href="@{/events/book/{id}(id=${event.id})}" class="btn btn-custom">Book Now</a>
+            
+            <div th:if="${session.loggedInUser != null and session.loggedInUser.role == 'ADMIN'}">
+                <a th:href="@{/events/edit/{id}(id=${event.id})}" class="btn btn-outline-secondary btn-sm">Edit</a>
+                <a th:href="@{/events/delete/{id}(id=${event.id})}" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure?')">Delete</a>
+            </div>
+        </div>
+    </div>
+</div>
             </div>
         </div>
     </div>

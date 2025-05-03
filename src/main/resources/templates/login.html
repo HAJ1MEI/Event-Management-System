@@ -4,15 +4,159 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Login</title>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+  
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" />
   <style>
-    body {
-      
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+:root{
+    --accent-color: #6e6457;
+    --light-accent: #8d806f;
+    --primary-color: #f7f7f3;
+    --dark-color: #0a0a0a;
+
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+    font-family: 'Poppins', sans-serif;
+}
+
+h1{
+    font-family: 'Cinzel', serif !important;
+}
+
+a{
+	text-decoration: none;
+	color: white;
+}
+
+.nav_links a{
+    color: var(--accent-color);
+}
+
+i{
+    font-size: 1.5rem;
+}
+
+.hero_img{
+    width: 100vw;
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    
+}
+
+nav{
+    max-width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    justify-content: space-between;
+    align-self: center;
+    padding: 15px 100px;
+    align-items: center;
+    background-color: var(--primary-color);
+    color: var(--dark-color);
+    font-size: 1.1rem;
+    /* width: 90%; */
+    border-radius: 15px;
+    position: relative;
+    z-index: 1000;
+    top: 10px;
+}
+
+input[type="text"], .search-field{
+    border: none;
+    padding: 10px;
+    border-radius: 10px;
+    margin-right: 0.5rem;
+    margin-left:0.5rem;
+    border: 1px solid var(--accent-color);
+}
+
+.nav_links{
+    display: flex;
+    justify-content: space-between;
+    width: 35%;
+    margin-left: 150px;
+}
+.nav_links a:hover{
+    transition: 0.3s;
+    color: var(--dark-color);
+}
+
+.logo{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    ;
+}
+.logo h1 a{
+    font-family: 'Cinzel', serif;
+    color: var(--dark-color);
+}
+.nav-login{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+    
+    /*Dropdown*/
+.profile-menu {
+  position: relative;
+  display: inline-block;
+}
+
+.profile-btn {
+  background: none;
+  border: none;
+  color: var(--dark-color);
+  cursor: pointer;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 8px;
+}
+
+.profile-dropdown {
+  display: none;
+  position: absolute;
+  top: 100%; /* Places dropdown right below the button */
+  right: 0;
+  background: var(--primary-color);
+  min-width: 150px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  border-radius: 5px;
+  z-index: 100;
+}
+
+.profile-dropdown .dropdown-item {
+  display: block;
+  padding: 10px 15px;
+  color: var(--dark-color);
+  text-decoration: none;
+}
+
+.profile-dropdown .dropdown-item:hover {
+  background-color: var(--light-accent);
+  color: var(--primary-color);
+}
+
+/* Show dropdown on hover */
+.profile-menu:hover .profile-dropdown {
+  display: block;
+}
     .login-card {
       background: #fff;
       border-radius: 15px;
@@ -20,27 +164,169 @@
       padding: 2rem;
       width: 100%;
       max-width: 400px;
+      margin: auto;
+      
     }
     .login-card h2 {
+		font-family: 'Cinzel', serif !important;
       font-weight: 700;
       margin-bottom: 1.5rem;
-      color: #2575fc;
+      color: var(--accent-color);
     }
     .form-label {
       font-weight: 500;
     }
     .btn-primary {
-      background-color: #2575fc;
+      background-color:var(--accent-color);
       border: none;
     }
     .btn-primary:hover {
       background-color: #1a5bb8;
     }
+    .text-center a {
+      text-decoration: none;
+      color: #2575fc;
+    }
+    .text-center a:hover {
+      text-decoration: underline;
+    }
+    /* footer */
+img {
+    max-width: 100%;
+    height: auto;
+}
+        section {
+            padding: 60px 0;
+           /* min-height: 100vh;*/
+        }
+ ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+.contact-area {
+    border-bottom: 1px solid #353C46;
+    margin-top: 5rem;
+}
+.contact-content h1{
+	font-size: 3rem;
+}
+.contact-content p {
+    font-size: 15px;
+    margin: 30px 0 60px;
+    position: relative;
+}
+
+.contact-content p::after {
+    background: #353C46;
+    bottom: -30px;
+    content: "";
+    height: 1px;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%);
+    width: 80%;
+}
+
+.contact-content h6 {
+    color: white;
+    font-size: 15px;
+    font-weight: 400;
+    margin-bottom: 10px;
+}
+
+.contact-content span {
+    color: white;
+    margin: 0 10px;
+}
+
+.contact-social {
+    margin-top: 30px;
+}
+
+.contact-social > ul {
+    display: inline-flex;
+}
+
+.contact-social ul li a {
+    border: 1px solid #8b9199;
+    color: #8b9199;
+    display: inline-block;
+    height: 40px;
+    margin: 0 10px;
+    padding-top: 7px;
+    transition: all 0.4s ease 0s;
+    width: 40px;
+}
+
+.contact-social ul li a:hover {
+    border: 1px solid #FAB702;
+    color: #FAB702;
+}
+
+.contact-content img {
+    max-width: 210px;
+}
+
+section, footer {
+    background-color: var(--accent-color);
+    color: white;
+}
+
+footer p {
+    padding: 40px 0;
+    text-align: center;
+}
+
+footer img {
+    width: 44px;
+}
+
+.text-center{
+    text-align: center;
+}
   </style>
 </head>
 <body>
 
-  <div class="login-card">
+<nav>
+                <div class="logo">
+                    <i class="fa-solid fa-couch" style="color: #abac6c;"></i>
+                    <i class="fa-thin fa-couch"></i>
+                    <h1><a href="/events">FurnitureX</a></h1>
+                </div>
+                <div class="nav_links">
+                	<a href="/events/products">Products</a>
+                    <a href="/events/about">About</a>
+                    <a href="/events/service">Services</a>
+                    <a href="/events/contact">Contact</a>
+                    
+                </div>
+                <div class="nav-login">
+                    <form class="d-flex me-3" action="/events/search" method="get">
+                        <input class="search-field" type="search" name="title" placeholder="Search events..." aria-label="Search">
+                    </form>
+					<li class="nav-item ms-2" th:if="${session.loggedInUser != null and session.loggedInUser.role == 'ADMIN'}">
+                    <a href="/events/new" class="btn btn-warning btn-sm px-3">Add Product</a>
+                </li>
+					
+                    <div class="profile-menu">
+  <button class="btn">
+    <span th:if="${session.loggedInUser != null}" th:text="${session.loggedInUser.username}">Profile</span>
+    <span th:if="${session.loggedInUser == null}">Profile</span>
+    <i class="fa-solid fa-caret-down"></i>
+  </button>
+  <div class="profile-dropdown">
+    <a href="/login" class="dropdown-item" th:if="${session.loggedInUser == null}">Login</a>
+    <a href="/orders" class="dropdown-item" th:if="${session.loggedInUser != null}">Orders</a>
+    <a href="/wishlist" class="dropdown-item" th:if="${session.loggedInUser != null}">Wishlist</a>
+    <a href="/logout" class="dropdown-item" th:if="${session.loggedInUser != null}">Logout</a>
+  </div>
+</div>   
+                </div>
+            </nav>
+
+  <div class="login-card mt-5">
     <h2 class="text-center">Login</h2>
     <form action="/login" method="post">
       <div th:if="${error}" class="alert alert-danger" th:text="${error}"></div>
@@ -57,11 +343,46 @@
       <div class="d-grid mb-3">
         <button type="submit" class="btn btn-primary btn-lg">Login</button>
       </div>
-      <div class="d-grid">
+      <div class="d-grid mb-3">
         <a href="/events" class="btn btn-secondary btn-lg">Back</a>
       </div>
     </form>
+    <div class="text-center">
+      <p>Don't have an account? <a href="/register">Register here</a></p>
+    </div>
   </div>
+  
+  <section class="contact-area" id="contact">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 offset-lg-3">
+                    <div class="contact-content text-center">
+                        <h1>FurnitureX</h1>
+                        <p>
+                        	At <b>FurnitureX</b>, we believe that luxury is defined by more than just exquisite 
+                        	materials; it's about the seamless fusion of innovative design, unparalleled
+                        	 craftsmanship, and a deep understanding of modern living. 
+                        	 We curate a collection of contemporary furniture that transcends fleeting trends,
+                        	  focusing instead on timeless pieces that elevate your home into a sanctuary of
+                        	  style and comfort. 
+                        </p>
+                        <div class="hr"></div>
+                        <h6>1120 Lorem ipsum dolor sit amet, KC 179050, Mumbai.</h6>
+                        <h6>+91 99999 99999<span>|</span>+91 90000 00001</h6>
+                        <div class="contact-social">
+                            <ul>
+                                <li><a class="hover-target" href=""><i class="fab fa-facebook-f"></i></a></li>
+                                <li><a class="hover-target" href=""><i class="fab fa-linkedin-in"></i></a></li>
+                                <li><a class="hover-target" href=""><i class="fab fa-github"></i></a></li>
+                                <li><a class="hover-target" href=""><i class="fab fa-behance"></i></a></li>
+                                <li><a class="hover-target" href=""><i class="fab fa-pinterest-p"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
